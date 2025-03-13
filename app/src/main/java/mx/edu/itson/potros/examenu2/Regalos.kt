@@ -126,7 +126,7 @@ class DetallesAdapter: BaseAdapter {
    //         val intent = Intent(context, DetalleRegalos::class.java)
      //       intent.putExtra("imagen", detalle.image)
        //     intent.putExtra("precio", detalle.precio)
-         //   context!!.startActivity(intent)
+         ///   context!!.startActivity(intent)
         //}
 
         return view
