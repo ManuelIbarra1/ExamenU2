@@ -36,6 +36,12 @@ class Regalos : AppCompatActivity() {
             "Regalos" -> cargarRegalos()
             else -> {}
         }
+
+        val adapter = DetallesAdapter(this, listaDetalles)
+
+        var gvRegalos: GridView = findViewById(R.id.gv_regalos)
+
+        gvRegalos.adapter = adapter
     }
 
     private fun cargarDetalles() {
@@ -69,7 +75,7 @@ class Regalos : AppCompatActivity() {
         listaDetalles.add(Detalles(R.drawable.peluchevarios, "$195"))
     }
 
-    private fun cargarTazas() {
+    private fun cargarRegalos() {
         listaDetalles.clear()
         listaDetalles.add(Detalles(R.drawable.regaloazul, "$80"))
         listaDetalles.add(Detalles(R.drawable.regalobebe, "$290"))
@@ -79,7 +85,7 @@ class Regalos : AppCompatActivity() {
         listaDetalles.add(Detalles(R.drawable.regalovarios, "$75"))
     }
 
-    private fun cargarRegalos() {
+    private fun cargarTazas() {
         listaDetalles.clear()
         listaDetalles.add(Detalles(R.drawable.tazaabuela, "$120"))
         listaDetalles.add(Detalles(R.drawable.tazalove, "$120"))
@@ -112,25 +118,28 @@ class DetallesAdapter: BaseAdapter {
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        val detalle = listaDetalles[position]
+
         val inflater = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = convertView ?: inflater.inflate(R.layout.activity_detalle_regalos, parent, false)
 
-        //val image: ImageView = view.findViewById(R.id.ivItemImagen)
-        //val price: TextView = view.findViewById(R.id.tvItemPrecio)
-    //    val detalle = listaDetalles[position]
+        val view = convertView ?: inflater.inflate(R.layout.detalles, parent, false)
 
-     //   image.setImageResource(detalle.image)
-       // price.text = detalle.precio
+        val image: ImageView = view.findViewById(R.id.imagen_detalle_cell)
+        val precio: TextView = view.findViewById(R.id.precio_detalle_cell)
 
- //       image.setOnClickListener {
-   //         val intent = Intent(context, DetalleRegalos::class.java)
-     //       intent.putExtra("imagen", detalle.image)
-       //     intent.putExtra("precio", detalle.precio)
-         ///   context!!.startActivity(intent)
-        //}
+        image.setImageResource(detalle.image)
+        precio.text = detalle.precio
+
+        image.setOnClickListener {
+            val intent = Intent(context, DetalleRegalos::class.java)
+            intent.putExtra("imagen", detalle.image)
+            intent.putExtra("precio", detalle.precio)
+            context!!.startActivity(intent)
+        }
 
         return view
     }
+
 
 
 }

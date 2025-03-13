@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="3pt">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imagen_detalle_cell"
+            android:layout_width="85dp"
+            android:layout_height="113dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/pelucheminecraft" />
+        
+        <TextView
+            android:id="@+id/precio_detalle_cell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:textColor="@color/text" />
+
+    </LinearLayout>
+
+</LinearLayout>
